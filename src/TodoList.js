@@ -1,7 +1,7 @@
 import TodoItem from './TodoItem'
 import React, {useState} from 'react'
 
-function TodoList() {
+function TodoList({depositCash}) {
     //const todos = ["college essay","study for math test"]
     const [newTodoText,setTodoText] = useState("")
     const [todos,setTodos] = useState([
@@ -23,9 +23,12 @@ function TodoList() {
 
     const handleMarkAsDone = (id) => {
        const index =  todos.findIndex( (todo) => todo.id == id )
-       todos[id-1].isDone = !todos[id-1].isDone
+       if (!todos[index].isDone)
+        depositCash()
+       todos[id-1].isDone = true
        setTodos([...todos])
-       alert(todos[id-1].isDone)
+       
+       //alert(todos[id-1].isDone)
     }
 
     const addTodo = () => {
@@ -54,6 +57,7 @@ function TodoList() {
                 <TodoItem 
                     handleMarkAsDone={handleMarkAsDone}
                     title={todo.title}
+                    price={todo.price}
                     key={todo.id}
                     id={todo.id}
                     isDone={todo.isDone}

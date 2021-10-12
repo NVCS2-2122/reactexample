@@ -1,4 +1,4 @@
-function TodoItem({title,id,isDone,handleMarkAsDone}) {    
+function TodoItem({title,price,id,isDone,handleMarkAsDone}) {    
     const style = {
         backgroundColor: isDone ? "green" : "red"
     }
@@ -6,7 +6,10 @@ function TodoItem({title,id,isDone,handleMarkAsDone}) {
     return (
         <li 
             onClick={() => {handleMarkAsDone(id)}} 
-            style={style}>{title}
+            style={style}
+        >
+            {title}
+            &nbsp;${price}
         </li>
     )
 }
