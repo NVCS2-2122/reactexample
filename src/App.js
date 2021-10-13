@@ -7,8 +7,8 @@ import React, { useState } from 'react'
 function App() {
   const [cash,setCash] = useState(0)
 
-  const depositCash = () => {
-    setCash(cash+1)
+  const depositCash = (extraCash) => {
+    setCash(cash+extraCash)
   }
 
   return (

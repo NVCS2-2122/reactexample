@@ -24,7 +24,7 @@ function TodoList({depositCash}) {
     const handleMarkAsDone = (id) => {
        const index =  todos.findIndex( (todo) => todo.id == id )
        if (!todos[index].isDone)
-        depositCash()
+        depositCash(todos[index].price)
        todos[id-1].isDone = true
        setTodos([...todos])
        
